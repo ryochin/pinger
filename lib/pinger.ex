@@ -27,7 +27,7 @@ defmodule Pinger do
   defp do_ping(type, host, timeout) do
     case :gen_icmp.ping(host |> String.to_charlist(), [type, {:timeout, timeout}]) do
       [{:ok, _host, _address, reply_addr, _details, _payload}] ->
-        {:ok, reply_addr |> Tuple.to_list() |> Enum.join(".")}
+        {:ok, reply_addr |> :inet_parse.ntoa() |> to_string}
 
       [{:error, icmp_reason, _host, _address, _reply_addr, _details, _payload}] ->
         {:error, icmp_reason}
