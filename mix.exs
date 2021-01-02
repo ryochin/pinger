@@ -20,7 +20,7 @@ defmodule Pinger.MixProject do
       {:credo, "~> 1.1.5", only: [:dev, :test]},
       {:dialyxir, "~> 1.0.0-rc.7", only: :dev, runtime: false},
       {:ex_doc, "~> 0.20", only: :dev},
-      {:gen_icmp, github: "msantos/gen_icmp"}
+      {:gen_icmp, github: "ryochin/gen_icmp"}
     ]
   end
 end
